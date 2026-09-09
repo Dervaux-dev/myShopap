@@ -13,6 +13,16 @@ const saleSchema = new mongoose.Schema({
     type: Number, 
     required: true 
   },
+  // Who made the sale (derived from the JWT on the backend)
+  soldBy: { 
+    type: String, 
+    default: 'unknown' 
+  },
+  soldById: { 
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    default: null 
+  },
   date: { 
     type: Date, 
     default: Date.now 

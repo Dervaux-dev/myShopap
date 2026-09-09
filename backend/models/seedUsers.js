@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
-require('dotenv').config({ path: '../.env' });
+const bcrypt = require('bcryptjs');
+require('dotenv').config();
 const User = require('./User'); // Reba ko iyi path ari yo
 
 const seedUsers = async () => {
@@ -22,14 +22,12 @@ const seedUsers = async () => {
       {
         username: 'admin',
         password: adminPassword,
-        role: 'admin',
-        fullName: 'Delvo Admin'
+        role: 'admin'
       },
       {
-        username: 'staff1',
+        username: 'staff',
         password: staffPassword,
-        role: 'staff',
-        fullName: 'Shop Attendant 01'
+        role: 'staff'
       }
     ];
 

@@ -4,8 +4,13 @@ const productSchema = new mongoose.Schema({
   name: { 
     type: String, 
     required: true, 
-    unique: true, // Bituma hatabaho ibicuruzwa bibiri bifite izina rimwe
+    unique: true,
     trim: true 
+  },
+  barcode: {
+    type: String,
+    default: "NO_BARCODE",
+    sparse: true
   },
   price: { 
     type: Number, 
@@ -15,7 +20,7 @@ const productSchema = new mongoose.Schema({
   stock: { 
     type: Number, 
     required: true, 
-    default: 0 // Umubare w'ibihari mu ntangiriro
+    default: 0
   },
   category: { 
     type: String, 

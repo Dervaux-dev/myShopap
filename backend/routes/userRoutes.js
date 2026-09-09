@@ -1,9 +1,12 @@
 const express = require('express');
 const router = express.Router();
-// Import-inga ya function neza ukoresheje amadukubo { }
-const { loginUser } = require('../controller/userController');
+const { loginUser, listUsers } = require('../controller/userController');
+const { auth, adminOnly } = require('../middleware/auth');
 
-// Iyo umuntu akoze POST kuri /login, ihamagara loginUser
+// Public: login
 router.post('/login', loginUser);
+
+// Admin-only: list all users
+router.get('/', auth, adminOnly, listUsers);
 
 module.exports = router;
